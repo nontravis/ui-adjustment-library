@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginBottom="@dimen/ui_adjustment_view_holder_small_margin"
+              android:layout_marginEnd="@dimen/ui_adjustment_view_holder_margin"
+              android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
+              android:layout_marginTop="@dimen/ui_adjustment_view_holder_small_margin"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/library_holder_tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/ui_adjustment_view_holder_title_text_size"
+            tools:text="Seekbar"
+            />
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/library_holder_tv_current_value"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="@dimen/ui_adjustment_view_holder_margin"
+            android:textAlignment="viewEnd"
+            tools:text="Seekbar"
+            />
+
+    </LinearLayout>
+
+
+    <com.thekhaeng.library.uiadjust.widget.FloatSeekBar
+        android:id="@+id/library_holder_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/ui_adjustment_view_holder_small_margin"
+        android:paddingTop="@dimen/ui_adjustment_view_holder_small_margin"/>
+
+</LinearLayout>

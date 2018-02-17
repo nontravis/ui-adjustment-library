@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FAFAFA"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#FFFFFF">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/library_btn_cancel"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:src="@drawable/ic_cancel_black_24dp"
+            android:tint="#FF5252"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/library_tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/ui_adjustment"
+            android:textSize="20sp"
+            />
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/library_btn_reset"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:src="@drawable/ic_reset_black_24dp"
+            android:tint="#BBBBBB"
+            />
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/library_btn_done"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:src="@drawable/ic_done_black_24dp"
+            android:tint="#00E676"
+            />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/library_rv_adjust"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ui_adjustment_bottom_sheet_height"/>
+
+
+</LinearLayout>
