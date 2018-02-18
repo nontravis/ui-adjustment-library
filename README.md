@@ -24,18 +24,13 @@ clone repo and build it :)
 Maven
 
 ```xml
-<dependency>
-  <groupId>com.github.thekhaeng</groupId>
-  <artifactId>ui-adjustment-library</artifactId>
-  <version>1.0.0</version>
-  <type>pom</type>
-</dependency>
+comming soon...
 ```
 
 Gradle
 
 ```gradle
-compile 'com.github.thekhaeng:ui-adjustment-library:1.0.0'
+comming soon...
 ```
 
 ## 「 Debug VS Release 」
@@ -127,7 +122,6 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
         ...
     }
 
-    @SuppressLint( "SetTextI18n" )
     @Override
     protected void onBoolean( Activity activity, int id, boolean value ){
         super.onBoolean( activity, id, value );
@@ -188,6 +182,11 @@ UIAdjustMainActivity
        .setUseLocalStorage( true, true );
 
 ```
+**`create( activity/fragment, view )`**
+
+* **activity/fragment**: ฝั่ง activity/fragment เพื่อนำไปใช้ใน class
+* **view**: ไว้คลิ๊กเพื่อแสดง UI Adjustment `NOTE: ถ้า build แบบ release จะซ้อน view ใหัอัตโนมัต`
+
 
 **`setDelayMillisTime( millis )`**
  
@@ -196,8 +195,8 @@ UIAdjustMainActivity
 
 **`setUseLocalStorage( useLocalStorage, bindDataImmediately )`** 
 
-* boolean: **useLocalStorage**: เปิดใช้ local storage (sharepreference) ในการเก็บค่ากลัง adjustment เสร็จ
-* boolean: **bindDataImmediately**: ให้ทำการเซ็ตข้อมูลเข้ากับ UI ทันทีที่เปิดใช้หน้านั้นๆ
+* boolean: **useLocalStorage**: เปิดใช้ local storage (sharepreference) ในการเก็บค่าเมื่อ adjustment เสร็จ
+* boolean: **bindDataImmediately**: ให้ทำการเซ็ตข้อมูลเข้ากับ UI ทันทีที่เปิดใช้งานหน้านั้นๆ
 
 
 # Licence
