@@ -37,9 +37,7 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
     private boolean bindDataImmediately = false;
 
     public UIFragmentAdjustment( A fragment, View button ){
-        if( BuildConfig.DEBUG ){
-            button.setVisibility( View.VISIBLE );
-        }
+        button.setVisibility( View.VISIBLE );
         weakFragment = new WeakReference<>( fragment );
         weakButton = new WeakReference<>( button );
         storage = DefaultLocalStorage.getInstance( fragment.getContext() );
@@ -122,9 +120,9 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
         return defaultItemList;
 
     }
-    
+
     private Context getContext(){
-       return getFragment().getContext();
+        return getFragment().getContext();
     }
 
     private void bindData( List<BaseAdjustItem> itemList ){
@@ -143,7 +141,7 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
                         storage.save( getStorageKey( id, AdjustAdapter.COLOR_ITEM ), color );
                     }
                     if( color != null ){
-                        UIFragmentAdjustment.this.onColor( getFragment(), id, color.getColor(getContext()) );
+                        UIFragmentAdjustment.this.onColor( getFragment(), id, color.getColor( getContext() ) );
                     }
                 }else if( item instanceof IntegerAdjustment ){
                     AdjustInteger value = ( (IntegerAdjustment) item ).getValue();
@@ -158,7 +156,7 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
                     if( isUseLocalStorage ){
                         storage.save( getStorageKey( id, AdjustAdapter.RANGE_FLOAT_ITEM ), value );
                     }
-                    UIFragmentAdjustment.this.onRangeFloat( getFragment(), id, value.getCurrentValue());
+                    UIFragmentAdjustment.this.onRangeFloat( getFragment(), id, value.getCurrentValue() );
                 }else if( item instanceof StringAdjustment ){
                     AdjustString value = ( (StringAdjustment) item ).getValue();
                     if( isUseLocalStorage ){
@@ -195,7 +193,7 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
 
         @Override
         public void onDone( List<BaseAdjustItem> itemList ){
-            bindData(itemList);
+            bindData( itemList );
         }
 
         @Override

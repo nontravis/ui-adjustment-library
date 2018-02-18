@@ -37,9 +37,7 @@ public abstract class UIActivityAdjustment<A extends FragmentActivity> implement
     private boolean bindDataImmediately = false;
 
     public UIActivityAdjustment( A activity, View button ){
-        if( BuildConfig.DEBUG ){
-            button.setVisibility( View.VISIBLE );
-        }
+        button.setVisibility( View.VISIBLE );
         weakActivity = new WeakReference<>( activity );
         weakButton = new WeakReference<>( button );
         storage = DefaultLocalStorage.getInstance( activity );
@@ -154,7 +152,7 @@ public abstract class UIActivityAdjustment<A extends FragmentActivity> implement
                     if( isUseLocalStorage ){
                         storage.save( getStorageKey( id, AdjustAdapter.RANGE_FLOAT_ITEM ), value );
                     }
-                    UIActivityAdjustment.this.onRangeFloat( getActivity(), id, value.getCurrentValue());
+                    UIActivityAdjustment.this.onRangeFloat( getActivity(), id, value.getCurrentValue() );
                 }else if( item instanceof StringAdjustment ){
                     AdjustString value = ( (StringAdjustment) item ).getValue();
                     if( isUseLocalStorage ){
@@ -191,7 +189,7 @@ public abstract class UIActivityAdjustment<A extends FragmentActivity> implement
 
         @Override
         public void onDone( List<BaseAdjustItem> itemList ){
-            bindData(itemList);
+            bindData( itemList );
         }
 
         @Override

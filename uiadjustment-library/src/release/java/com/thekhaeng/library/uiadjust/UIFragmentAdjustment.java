@@ -11,6 +11,7 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
 
 
     public UIFragmentAdjustment( A fragment, View button ){
+        button.setVisibility( View.GONE );
     }
 
 

@@ -10,6 +10,7 @@ import android.view.View;
 public abstract class UIActivityAdjustment<A extends FragmentActivity> implements UIAdjustmentInterface{
 
     public UIActivityAdjustment( A activity, View button ){
+        button.setVisibility( View.GONE );
     }
 
 
