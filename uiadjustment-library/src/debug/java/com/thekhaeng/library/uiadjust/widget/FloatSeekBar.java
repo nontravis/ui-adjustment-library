@@ -1,4 +1,3 @@
-
 package com.thekhaeng.library.uiadjust.widget;
 
 import android.content.Context;

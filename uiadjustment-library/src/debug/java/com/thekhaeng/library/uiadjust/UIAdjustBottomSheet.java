@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public class UIAdjustBottomSheet extends BottomSheetDialogFragment{

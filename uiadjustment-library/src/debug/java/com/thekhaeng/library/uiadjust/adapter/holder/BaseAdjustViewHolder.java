@@ -11,7 +11,7 @@ import com.thekhaeng.library.uiadjust.adapter.item.BaseAdjustItem;
 
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public abstract class BaseAdjustViewHolder<I extends BaseAdjustItem>

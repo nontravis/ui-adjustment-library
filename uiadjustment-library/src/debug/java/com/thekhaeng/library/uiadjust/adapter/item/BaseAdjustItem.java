@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public abstract class BaseAdjustItem<T> implements Parcelable{

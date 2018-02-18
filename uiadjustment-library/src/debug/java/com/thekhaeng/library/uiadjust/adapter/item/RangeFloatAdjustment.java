@@ -8,7 +8,7 @@ import com.thekhaeng.library.uiadjust.adapter.AdjustAdapter;
 import com.thekhaeng.library.uiadjust.adapter.model.AdjustRangeFloat;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public class RangeFloatAdjustment extends BaseAdjustItem<AdjustRangeFloat>{

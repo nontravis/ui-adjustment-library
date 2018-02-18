@@ -11,7 +11,7 @@ import com.thekhaeng.library.uiadjust.adapter.item.RangeFloatAdjustment;
 import com.thekhaeng.library.uiadjust.widget.FloatSeekBar;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public class RangeFloatAdjustHolder

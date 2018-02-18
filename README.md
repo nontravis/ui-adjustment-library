@@ -24,13 +24,18 @@ clone repo and build it :)
 Maven
 
 ```xml
-comming soon...
+<dependency>
+  <groupId>com.github.thekhaeng</groupId>
+  <artifactId>ui-adjustment-library</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
 ```
 
 Gradle
 
 ```gradle
-comming soon...
+compile 'com.github.thekhaeng:ui-adjustment-library:1.0.0'
 ```
 
 ## 「 Debug VS Release 」

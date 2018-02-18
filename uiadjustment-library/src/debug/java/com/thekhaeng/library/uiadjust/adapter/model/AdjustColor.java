@@ -8,7 +8,7 @@ import android.support.annotation.ColorRes;
 import android.support.v4.content.ContextCompat;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public class AdjustColor extends BaseAdjustModel{

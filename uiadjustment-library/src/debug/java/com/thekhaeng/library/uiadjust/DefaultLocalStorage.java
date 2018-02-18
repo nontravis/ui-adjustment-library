@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import com.google.gson.Gson;
 
 /**
- * Created by「 The Khaeng 」on 16 Feb 2018 :)
+ * Created by The Khaeng on 16 Feb 2018 :)
  */
 
 public class DefaultLocalStorage implements UIAdjustmentLocalStorage{

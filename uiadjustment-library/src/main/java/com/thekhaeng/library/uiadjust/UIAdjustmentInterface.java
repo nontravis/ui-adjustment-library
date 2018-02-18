@@ -1,10 +1,10 @@
 package com.thekhaeng.library.uiadjust;
 
 /**
- * Created by「 The Khaeng 」on 17 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
-interface UIAdjustmentInterface{
+public interface UIAdjustmentInterface{
 
     UIAdjustmentInterface setDelayMillisTime( long delay );
 

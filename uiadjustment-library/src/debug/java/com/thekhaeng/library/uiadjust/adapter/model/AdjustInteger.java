@@ -3,7 +3,7 @@ package com.thekhaeng.library.uiadjust.adapter.model;
 import android.os.Parcel;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public class AdjustInteger extends BaseAdjustModel{

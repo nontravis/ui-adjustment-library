@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdjustmentInterface{

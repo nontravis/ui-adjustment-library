@@ -10,7 +10,7 @@ import com.thekhaeng.library.uiadjust.R;
 import com.thekhaeng.library.uiadjust.adapter.item.BooleanAdjustment;
 
 /**
- * Created by「 The Khaeng 」on 15 Feb 2018 :)
+ * Created by The Khaeng on 15 Feb 2018 :)
  */
 
 public class BooleanAdjustHolder

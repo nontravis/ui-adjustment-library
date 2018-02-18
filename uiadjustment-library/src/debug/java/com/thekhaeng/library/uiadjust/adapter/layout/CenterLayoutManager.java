@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
 /**
- * Created by「 The Khaeng 」on 17 Feb 2018 :)
+ * Created by The Khaeng on 17 Feb 2018 :)
  */
 
 public class CenterLayoutManager extends LinearLayoutManager{
