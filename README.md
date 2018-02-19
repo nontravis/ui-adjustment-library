@@ -3,7 +3,7 @@
 <img src="./pictures/cover.png" width="1000">
 
 
-#### UI Adjustment Library เป็น library ที่ช่วยแก้ปัญหาการปรับเปลี่ยน UI ได้ตั้งแต่ตอน runtime (ไม่ต้อง rebuild หรือ restart) และยังสามารถเชื่อม business logic ที่มีหลายกรณีในหน้านั้นๆ กับ UI state ซึ่งจะช่วยลดระยะเวลาการทดสอบโค๊ดลงได้ :)
+#### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime (without rebuilding or restarting) and can also map business logic in many cases to the UI state. :)
 
 > NOTE: Boolean, Color, Integer, Float และ String เป็นค่าที่เราสามารถปรับเปลียนได้ในโปรเจคนี้
 
@@ -24,13 +24,18 @@ clone repo and build it :)
 Maven
 
 ```xml
-comming soon...
+<dependency>
+  <groupId>com.github.thekhaeng</groupId>
+  <artifactId>ui-adjustment-library</artifactId>
+  <version>1.0.1</version>
+  <type>pom</type>
+</dependency>
 ```
 
 Gradle
 
 ```gradle
-comming soon...
+compile 'com.github.thekhaeng:ui-adjustment-library:1.0.1'
 ```
 
 ## 「 Debug VS Release 」
