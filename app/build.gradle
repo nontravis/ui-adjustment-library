@@ -37,5 +37,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile project(path: ':ui-adjustment-library')
+
+    debugImplementation project(path: ':ui-adjustment-debug-library')
+    releaseImplementation project(path: ':ui-adjustment-release-library')
+
+//    debugImplementation 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.2'
+//    releaseImplementation 'com.github.thekhaeng:ui-adjustment-release-library:1.0.2'
 }

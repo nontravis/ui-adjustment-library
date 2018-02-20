@@ -2,7 +2,7 @@ package com.thekhaeng.library.uiadjustlibrary;
 
 import android.view.View;
 
-import com.thekhaeng.library.uiadjust.UIActivityAdjustment;
+import com.thekhaeng.library.uiadjustment.release.UIActivityAdjustment;
 
 /**
  * Created by「 The Khaeng 」on 15 Feb 2018 :)

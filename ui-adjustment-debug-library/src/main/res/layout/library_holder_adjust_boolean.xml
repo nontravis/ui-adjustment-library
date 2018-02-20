@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="42dp"
+    >
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/library_holder_tv_common"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
+        android:text="@string/ui_adjustment_common"
+        android:textColor="#00C853"
+        android:textSize="@dimen/ui_adjustment_view_holder_title_text_size_small"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/library_holder_tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible"/>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/library_holder_tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/ui_adjustment_view_holder_margin"
+        android:textSize="@dimen/ui_adjustment_view_holder_title_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/library_holder_switch"
+        app:layout_constraintStart_toEndOf="@+id/library_holder_tv_common"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Switch boolean"/>
+
+    <Switch
+        android:id="@+id/library_holder_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/ui_adjustment_view_holder_margin"
+        android:textOff="False"
+        android:textOn="True"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

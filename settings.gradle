@@ -1,1 +1,1 @@
-include ':app', ':ui-adjustment-library'
+include ':app', ':ui-adjustment-core-library', ':ui-adjustment-debug-library', ':ui-adjustment-release-library'

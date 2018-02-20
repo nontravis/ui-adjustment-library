@@ -17,9 +17,9 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate( Bundle savedInstanceState ){
         Bundle bundle = getIntent().getExtras();
-        if( bundle != null ){
+        if(bundle != null ){
             isRestart = true;
-            int theme = bundle.getInt( KEY_THEME );
+            int theme = bundle.getInt( KEY_THEME, -1 );
             switch( theme ){
                 case THEME_1:
                     setTheme( R.style.AppTheme );
@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity{
                 case THEME_3:
                     setTheme( R.style.AppTheme2 );
                     break;
+                default:
+                    isRestart = false;
             }
         }
         super.onCreate( savedInstanceState );

@@ -1,24 +1,23 @@
 package com.thekhaeng.library.uiadjustlibrary;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.TypedValue;
 import android.view.View;
 
-import com.thekhaeng.library.uiadjust.UIActivityAdjustment;
-import com.thekhaeng.library.uiadjust.adapter.item.BaseAdjustItem;
-import com.thekhaeng.library.uiadjust.adapter.item.BooleanAdjustment;
-import com.thekhaeng.library.uiadjust.adapter.item.ColorAdjustment;
-import com.thekhaeng.library.uiadjust.adapter.item.IntegerAdjustment;
-import com.thekhaeng.library.uiadjust.adapter.item.RangeFloatAdjustment;
-import com.thekhaeng.library.uiadjust.adapter.item.StringAdjustment;
-import com.thekhaeng.library.uiadjust.adapter.model.AdjustColor;
-import com.thekhaeng.library.uiadjust.adapter.model.AdjustInteger;
-import com.thekhaeng.library.uiadjust.adapter.model.AdjustRangeFloat;
-import com.thekhaeng.library.uiadjust.adapter.model.AdjustString;
+import com.thekhaeng.library.uiadjustment.debug.UIActivityAdjustment;
+import com.thekhaeng.library.uiadjustment.debug.adapter.item.BaseAdjustItem;
+import com.thekhaeng.library.uiadjustment.debug.adapter.item.BooleanAdjustment;
+import com.thekhaeng.library.uiadjustment.debug.adapter.item.ColorAdjustment;
+import com.thekhaeng.library.uiadjustment.debug.adapter.item.IntegerAdjustment;
+import com.thekhaeng.library.uiadjustment.debug.adapter.item.RangeFloatAdjustment;
+import com.thekhaeng.library.uiadjustment.debug.adapter.item.StringAdjustment;
+import com.thekhaeng.library.uiadjustment.debug.adapter.model.AdjustColor;
+import com.thekhaeng.library.uiadjustment.debug.adapter.model.AdjustInteger;
+import com.thekhaeng.library.uiadjustment.debug.adapter.model.AdjustRangeFloat;
+import com.thekhaeng.library.uiadjustment.debug.adapter.model.AdjustString;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -33,6 +32,7 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
 
 
     private static final int THEME_ID = 100;
+    private static final int COMMON_URL = 101;
 
     public static UIAdjustMainActivity create( MainActivity activity, View button ){
         return new UIAdjustMainActivity( activity, button );
@@ -45,6 +45,10 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @NonNull
     @Override
     public List<BaseAdjustItem> createAdjustItemList(){
+        Map<String, AdjustString> mapUrl = new LinkedHashMap<>();
+        mapUrl.put( "www.google.com", new AdjustString( "www.google.com", true ) );
+        mapUrl.put( "www.medium.com", new AdjustString( "www.medium.com" ) );
+
         List<BaseAdjustItem> itemList = new ArrayList<>();
         Map<String, AdjustColor> mapColor = new LinkedHashMap<>();
         mapColor.put( "1", new AdjustColor( "#F44336" ) );
@@ -69,6 +73,7 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
         mapString.put( "Message 3", new AdjustString( getActivity().getString( R.string.message_3 ) ) );
 
 
+        itemList.add( StringAdjustment.create( COMMON_URL, "URL", mapUrl, true ) );
         itemList.add( ColorAdjustment.create( R.id.tv_color, "Color View", mapColor ) );
         itemList.add( BooleanAdjustment.create( R.id.tv_show, "Show View", true ) );
         itemList.add( IntegerAdjustment.create( THEME_ID, "Choose Theme", mapInteger ) );
@@ -79,18 +84,18 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
 
 
     @Override
-    protected void onColor( Activity activity, int id, @ColorInt int color ){
-        super.onColor( activity, id, color );
-        activity.findViewById( id ).setBackgroundColor( color );
+    public void onColor( int id, @ColorInt int color ){
+        super.onColor( id, color );
+        getActivity().findViewById( id ).setBackgroundColor( color );
     }
 
     @SuppressLint( "SetTextI18n" )
     @Override
-    protected void onBoolean( Activity activity, int id, boolean value ){
-        super.onBoolean( activity, id, value );
+    public void onBoolean( int id, boolean value ){
+        super.onBoolean( id, value );
 
         if( R.id.tv_show == id ){
-            AppCompatTextView tvShow = activity.findViewById( id );
+            AppCompatTextView tvShow = getActivity().findViewById( id );
             if( value ){
                 tvShow.setText( "True" );
                 tvShow.setAlpha( 1.0f );
@@ -103,18 +108,18 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     }
 
     @Override
-    protected void onInteger( Activity activity, int id, int value ){
-        super.onInteger( activity, id, value );
+    public void onInteger( int id, int value ){
+        super.onInteger( id, value );
         if( THEME_ID == id ){
             getActivity().restart( value );
         }
     }
 
     @Override
-    protected void onRangeFloat( Activity activity, int id, float value ){
-        super.onRangeFloat( activity, id, value );
+    public void onRangeFloat( int id, float value ){
+        super.onRangeFloat( id, value );
         if( R.id.tv_size == id ){
-            ( (AppCompatTextView) activity.findViewById( R.id.tv_size ) )
+            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_size ) )
                     .setTextSize(
                             TypedValue.COMPLEX_UNIT_SP,
                             value );
@@ -122,10 +127,10 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     }
 
     @Override
-    protected void onString( Activity activity, int id, String value ){
-        super.onString( activity, id, value );
+    public void onString( int id, String value ){
+        super.onString( id, value );
         if( R.id.tv_message == id ){
-            ( (AppCompatTextView) activity.findViewById( R.id.tv_message ) )
+            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_message ) )
                     .setText( value );
         }
     }

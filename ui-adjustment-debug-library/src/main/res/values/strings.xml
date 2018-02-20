@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UIAdjustmentDebug</string>
+    <string name="ui_adjustment">UI Adjustment</string>
+    <string name="ui_adjustment_common">COMMON</string>
+
+    <string-array name="example_array">
+        <item>Example</item>
+    </string-array>
+</resources>
