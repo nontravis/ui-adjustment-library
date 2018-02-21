@@ -9,11 +9,18 @@ import com.thekhaeng.library.uiadjustment.core.UIAdjustmentInterface;
  * Created by The Khaeng on 15 Feb 2018 :)
  */
 
-public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdjustmentInterface{
+public abstract class UIFragmentAdjustment<A extends Fragment>
+        implements UIAdjustmentInterface{
 
 
     public UIFragmentAdjustment( A fragment, View button ){
         button.setVisibility( View.GONE );
+    }
+
+    @Override
+    public UIAdjustmentInterface setTitle( String title ){
+        // do nothing
+        return this;
     }
 
 
@@ -27,5 +34,29 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
         return this;
     }
 
+    @Override
+    public void onBoolean( int id, boolean value ){
+        // do nothing
+    }
+
+    @Override
+    public void onColor( int id, int value ){
+        // do nothing
+    }
+
+    @Override
+    public void onInteger( int id, int value ){
+        // do nothing
+    }
+
+    @Override
+    public void onRangeFloat( int id, float value ){
+        // do nothing
+    }
+
+    @Override
+    public void onString( int id, String value ){
+        // do nothing
+    }
 
 }

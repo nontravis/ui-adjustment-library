@@ -3,6 +3,9 @@
 <img src="./pictures/cover.png" width="1000">
 
 
+[README ENG](./README.md)
+
+
 #### UI Adjustment Library เป็น library ที่ช่วยแก้ปัญหาการปรับเปลี่ยน UI ได้ตั้งแต่ตอน runtime (ไม่ต้อง rebuild หรือ restart) และยังสามารถเชื่อม business logic ที่มีหลายกรณีในหน้านั้นๆ กับ UI state ซึ่งจะช่วยลดระยะเวลาการทดสอบโค๊ดลงได้ :)
 
 > NOTE: Boolean, Color, Integer, Float และ String เป็นค่าที่เราสามารถปรับเปลียนได้ในโปรเจคนี้
@@ -21,16 +24,12 @@ clone repo and build it :)
 
 ## 「 Installation 」
 
-Maven
-
-```xml
-comming soon...
-```
-
 Gradle
 
 ```gradle
-comming soon...
+compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
+debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.5'
+releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.5'
 ```
 
 ## 「 Debug VS Release 」
@@ -178,10 +177,15 @@ public class MainActivity extends AppCompatActivity{
 ```java
 UIAdjustMainActivity
        .create( this, fab )
+       .setTitle( "Example Title" )
        .setDelayMillisTime( 500 )
        .setUseLocalStorage( true, true );
 
 ```
+**`setTitle( title )`**
+
+* string: **title**: เปลี่ยน default title
+
 **`create( activity/fragment, view )`**
 
 * **activity/fragment**: ฝั่ง activity/fragment เพื่อนำไปใช้ใน class

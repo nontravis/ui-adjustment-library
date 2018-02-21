@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by「 The Khaeng 」on 20 Feb 2018 :)
+ * Created by The Khaeng on 20 Feb 2018 :)
  */
 
 class UIAdjustmentDelegate{
@@ -30,11 +30,16 @@ class UIAdjustmentDelegate{
     private long delay = 0L;
     private boolean isUseLocalStorage = false;
     private boolean bindDataImmediately = false;
+    private String title;
 
     UIAdjustmentDelegate( Context context, UIAdjustmentInterface adjustInterface ){
         this.context = context;
         this.storage = DefaultLocalStorage.getInstance( context );
         this.adjustInterface = adjustInterface;
+    }
+
+    void setTitle( String title ){
+        this.title = title;
     }
 
     void setDelay( long delay ){
@@ -155,6 +160,10 @@ class UIAdjustmentDelegate{
                 }
             }
         }
+    }
+
+    String getTitle(){
+        return title;
     }
 
     long getDelay(){

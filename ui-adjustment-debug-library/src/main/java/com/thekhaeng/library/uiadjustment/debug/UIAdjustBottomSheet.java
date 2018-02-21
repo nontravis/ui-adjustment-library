@@ -30,6 +30,7 @@ import java.util.List;
 public class UIAdjustBottomSheet
         extends BottomSheetDialogFragment{
 
+    public static final String KEY_TITLE = "key_title";
     public static final String KEY_DEFAULT_ITEM_LIST = "key_default_item_list";
     public static final String KEY_LOADED_ITEM_LIST = "key_loaded_item_list";
 
@@ -53,10 +54,12 @@ public class UIAdjustBottomSheet
         void onCancel();
     }
 
-    public static UIAdjustBottomSheet create( List<BaseAdjustItem> defaultItemList,
+    public static UIAdjustBottomSheet create( String title,
+                                              List<BaseAdjustItem> defaultItemList,
                                               List<BaseAdjustItem> loadedItemList ){
         UIAdjustBottomSheet fragment = new UIAdjustBottomSheet();
         Bundle args = new Bundle();
+        args.putString( KEY_TITLE, title );
         args.putParcelableArrayList( KEY_DEFAULT_ITEM_LIST, (ArrayList<? extends Parcelable>) defaultItemList );
         args.putParcelableArrayList( KEY_LOADED_ITEM_LIST, (ArrayList<? extends Parcelable>) loadedItemList );
         fragment.setArguments( args );
@@ -156,6 +159,7 @@ public class UIAdjustBottomSheet
 
 
     private void setupView(){
+        tvTitle.setText(getTitle());
         layoutManager = new LinearLayoutManager( getContext() );
         adapter = new AdjustAdapter();
         rvAdjust.setLayoutManager( layoutManager );
@@ -170,6 +174,18 @@ public class UIAdjustBottomSheet
 
     public void setOnDismissBottomSheetListener( OnDismissBottomSheetListener dismissListener ){
         this.dismissListener = dismissListener;
+    }
+
+    public String getTitle(){
+        if( getArguments() != null ){
+            return getArguments().getString(
+                    KEY_TITLE,
+                    getResources().getString( R.string.ui_adjustment )
+            );
+        }else{
+            return getResources().getString( R.string.ui_adjustment );
+        }
+
     }
 
     public List<BaseAdjustItem> getDefaultItemList(){

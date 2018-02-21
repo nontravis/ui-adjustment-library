@@ -6,6 +6,8 @@ package com.thekhaeng.library.uiadjustment.core;
 
 public interface UIAdjustmentInterface{
 
+    UIAdjustmentInterface setTitle( String title );
+
     UIAdjustmentInterface setDelayMillisTime( long delay );
 
     UIAdjustmentInterface setUseLocalStorage( boolean useLocalStorage, boolean bindDataImmediately );

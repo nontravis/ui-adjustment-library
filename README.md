@@ -2,6 +2,7 @@
 
 <img src="./pictures/cover.png" width="1000">
 
+[README TH](./README_TH.md)
 
 #### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime (without rebuilding or restarting) and can also map business logic in many cases to the UI state. :)
 
@@ -14,10 +15,11 @@
 
 ## 「 DEMO APPLICATION 」
 
+```gradle
+compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
+debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.5'
+releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.5'
 ```
-clone repo and build it :)
-```
-
 
 ## 「 Installation 」
 
@@ -187,6 +189,11 @@ UIAdjustMainActivity
        .setUseLocalStorage( true, true );
 
 ```
+
+**`setTitle( title )`**
+
+* string: **title**: เปลี่ยน default title
+
 **`create( activity/fragment, view )`**
 
 * **activity/fragment**: ฝั่ง activity/fragment เพื่อนำไปใช้ใน class

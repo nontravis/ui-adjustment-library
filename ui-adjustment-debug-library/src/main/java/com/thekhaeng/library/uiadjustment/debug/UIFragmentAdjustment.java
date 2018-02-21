@@ -43,6 +43,11 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
         return weakButton.get();
     }
 
+    @Override
+    public UIAdjustmentInterface setTitle( String title ){
+        uiAdjustmentDelegate.setTitle( title );
+        return this;
+    }
 
     @Override
     public UIAdjustmentInterface setDelayMillisTime( long delay ){
@@ -97,6 +102,7 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
             public void onClick( View v ){
                 List<BaseAdjustItem> itemList = createAdjustItemList();
                 UIAdjustBottomSheet bottomSheet = UIAdjustBottomSheet.create(
+                        uiAdjustmentDelegate.getTitle(),
                         uiAdjustmentDelegate.copyItemList( itemList ),
                         uiAdjustmentDelegate.getItemList( itemList ) );
                 bottomSheet.setOnDismissBottomSheetListener( dismissListener );
