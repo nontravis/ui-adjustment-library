@@ -34,8 +34,9 @@
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="1"
-            tools:text="@string/ui_adjustment"
+            android:textColor="@color/ui_adjustment_text_secondary"
             android:textSize="20sp"
+            tools:text="@string/ui_adjustment"
             />
 
 

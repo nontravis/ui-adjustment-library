@@ -38,9 +38,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    debugImplementation project(path: ':ui-adjustment-debug-library')
-    releaseImplementation project(path: ':ui-adjustment-release-library')
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
+    debugImplementation 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.6'
+//    releaseImplementation 'com.github.thekhaeng:ui-adjustment-release-library:1.0.3'
 
-//    debugImplementation 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.2'
-//    releaseImplementation 'com.github.thekhaeng:ui-adjustment-release-library:1.0.2'
+//    debugImplementation project(path: ':ui-adjustment-debug-library')
+//    releaseImplementation project(path: ':ui-adjustment-release-library')
 }

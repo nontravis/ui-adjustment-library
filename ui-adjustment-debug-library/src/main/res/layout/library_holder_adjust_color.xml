@@ -27,10 +27,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
         android:layout_marginEnd="@dimen/ui_adjustment_view_holder_margin"
+        android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
         android:ellipsize="end"
         android:maxLines="1"
+        android:textColor="@color/ui_adjustment_text_secondary"
         android:textSize="@dimen/ui_adjustment_view_holder_title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/library_holder_tv_common"
@@ -45,6 +46,20 @@
         android:paddingEnd="@dimen/ui_adjustment_view_holder_margin"
         android:paddingStart="@dimen/ui_adjustment_view_holder_margin"
         android:scrollbarStyle="outsideOverlay"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/library_holder_tv_title"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="@dimen/ui_adjustment_view_holder_margin"
+        android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
+        android:background="@color/ui_adjustment_divider"
+        app:layout_constraintTop_toBottomOf="@+id/library_holder_rv_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
 
 </android.support.constraint.ConstraintLayout>

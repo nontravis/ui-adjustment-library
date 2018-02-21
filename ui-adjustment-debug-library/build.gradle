@@ -14,7 +14,7 @@ ext {
     gitUrl = 'https://github.com/TheKhaeng/ui-adjustment-library.git'
     githubRepository = 'TheKhaeng/ui-adjustment-library'
 
-    libraryVersion = '1.0.5'
+    libraryVersion = '1.0.7'
 
     developerId = 'nonthawit'
     developerName = 'Nonthawit Doungsodsri'
@@ -40,7 +40,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0.5"
+        versionName "1.0.7"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }

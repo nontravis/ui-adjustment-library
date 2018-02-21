@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/ui_adjustment_view_holder_margin"
         android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
+        android:textColor="@color/ui_adjustment_text_secondary"
         android:textSize="@dimen/ui_adjustment_view_holder_title_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/library_holder_tv_common"
@@ -43,5 +44,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/library_holder_tv_title"
         tools:entries="@array/example_array"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginEnd="@dimen/ui_adjustment_view_holder_margin"
+        android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
+        android:layout_marginTop="@dimen/ui_adjustment_view_holder_small_margin"
+        android:background="@color/ui_adjustment_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/library_holder_spinner"
+        />
 
 </android.support.constraint.ConstraintLayout>

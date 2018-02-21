@@ -21,6 +21,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:minWidth="100dp"
     android:padding="8dp"
+    android:textColor="@color/ui_adjustment_text_primary"
     tools:text="spinner list">
 </android.support.v7.widget.AppCompatTextView>
