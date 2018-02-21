@@ -43,6 +43,7 @@
         android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/library_holder_tv_title"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
         tools:entries="@array/example_array"/>
 
     <View

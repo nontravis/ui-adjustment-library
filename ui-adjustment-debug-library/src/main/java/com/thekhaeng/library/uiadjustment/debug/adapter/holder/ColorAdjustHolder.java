@@ -83,7 +83,7 @@ public class ColorAdjustHolder
 
         void selectColor( @ColorInt int color ){
             for( AdjustColor item : colorList ){
-                item.setSelected( item.getColor( context ) == color );
+                item.setSelected( item.getColor( ) == color );
             }
             notifyDataSetChanged();
         }
@@ -163,7 +163,7 @@ public class ColorAdjustHolder
                 @Override
                 public void onClick( View v ){
                     if( listener != null ){
-                        listener.onClick( ColorViewHolder.this, color.getColor( itemView.getContext() ) );
+                        listener.onClick( ColorViewHolder.this, color.getColor() );
                     }
                 }
             } );

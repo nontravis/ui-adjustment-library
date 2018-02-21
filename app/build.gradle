@@ -40,9 +40,9 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
-    debugImplementation 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.6'
+//    debugImplementation 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.7'
 //    releaseImplementation 'com.github.thekhaeng:ui-adjustment-release-library:1.0.3'
 
-//    debugImplementation project(path: ':ui-adjustment-debug-library')
+    debugImplementation project(path: ':ui-adjustment-debug-library')
 //    releaseImplementation project(path: ':ui-adjustment-release-library')
 }

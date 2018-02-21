@@ -73,9 +73,9 @@ public class SingleColorDrawable extends Drawable{
     public void setColorItem( Context context, AdjustColor colorItem ){
         this.colorItem = colorItem;
         double contrastRatioWithBlack =
-                ColorUtils.calculateContrast( Color.BLACK, colorItem.getColor( context ) );
+                ColorUtils.calculateContrast( Color.BLACK, colorItem.getColor() );
         double contrastRatioWithWhite =
-                ColorUtils.calculateContrast( Color.WHITE, colorItem.getColor( context ) );
+                ColorUtils.calculateContrast( Color.WHITE, colorItem.getColor() );
         @DrawableRes int checkMarkId = contrastRatioWithBlack > contrastRatioWithWhite
                 ? R.drawable.ic_done_black_24dp : R.drawable.ic_done_white_24dp;
         checkMark = ContextCompat.getDrawable( context, checkMarkId );
@@ -100,7 +100,7 @@ public class SingleColorDrawable extends Drawable{
         // Paint a black outline.
         canvas.drawCircle( radius, radius, radius - borderWidth / 2f, paintBorder );
         // Paint the colored circle.
-        paintFill.setColor( colorItem.getColor( context ) );
+        paintFill.setColor( colorItem.getColor() );
         canvas.drawCircle( radius, radius, radius - borderWidth / 2f, paintFill );
         if( colorItem.isSelected() ){
             int iconHeight = checkMark.getIntrinsicHeight();

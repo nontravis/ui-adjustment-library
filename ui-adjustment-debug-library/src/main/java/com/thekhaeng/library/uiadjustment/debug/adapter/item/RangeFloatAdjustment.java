@@ -13,7 +13,7 @@ import com.thekhaeng.library.uiadjustment.debug.adapter.model.AdjustRangeFloat;
  * Created by The Khaeng on 15 Feb 2018 :)
  */
 
-public class RangeFloatAdjustment extends BaseAdjustItem<AdjustRangeFloat>{
+public class RangeFloatAdjustment extends BaseAdjustItem<Float>{
 
     private AdjustRangeFloat rangeFloat;
 
@@ -57,8 +57,8 @@ public class RangeFloatAdjustment extends BaseAdjustItem<AdjustRangeFloat>{
     }
 
 
-    public void setRangeFloat( AdjustRangeFloat rangeFloat ){
-        this.rangeFloat = rangeFloat;
+    public void setCurrentValue( Float currentValue ){
+        this.rangeFloat.setCurrentValue( currentValue );
     }
 
     @Override
@@ -71,15 +71,15 @@ public class RangeFloatAdjustment extends BaseAdjustItem<AdjustRangeFloat>{
     }
 
     @Override
-    public void selectValue( Object object ){
-        if( object instanceof AdjustRangeFloat ){
-            setRangeFloat( (AdjustRangeFloat) object );
+    public void selectValue( @NonNull Object object ){
+        if( object instanceof Float ){
+            setCurrentValue( (Float) object );
         }
     }
 
     @Override
-    public Class<AdjustRangeFloat> getStorageClass(){
-        return AdjustRangeFloat.class;
+    public Class<Float> getStorageClass(){
+        return Float.class;
     }
 
 

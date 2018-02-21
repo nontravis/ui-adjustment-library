@@ -57,6 +57,7 @@
         android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
         android:paddingBottom="@dimen/ui_adjustment_view_holder_small_margin"
         android:paddingTop="@dimen/ui_adjustment_view_holder_small_margin"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/library_holder_tv_title"/>
@@ -66,11 +67,11 @@
         android:layout_height="1dp"
         android:layout_marginEnd="@dimen/ui_adjustment_view_holder_margin"
         android:layout_marginStart="@dimen/ui_adjustment_view_holder_margin"
-        android:background="@color/ui_adjustment_divider"
         android:layout_marginTop="@dimen/ui_adjustment_view_holder_small_margin"
-        app:layout_constraintTop_toBottomOf="@+id/library_holder_seekbar"
+        android:background="@color/ui_adjustment_divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/library_holder_seekbar"
         />
 
 </android.support.constraint.ConstraintLayout>

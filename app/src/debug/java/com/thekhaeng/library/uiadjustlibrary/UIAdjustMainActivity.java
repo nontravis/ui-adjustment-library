@@ -1,6 +1,7 @@
 package com.thekhaeng.library.uiadjustlibrary;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatTextView;
@@ -51,16 +52,16 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
 
         List<BaseAdjustItem> itemList = new ArrayList<>();
         Map<String, AdjustColor> mapColor = new LinkedHashMap<>();
-        mapColor.put( "1", new AdjustColor( "#F44336" ) );
-        mapColor.put( "2", new AdjustColor( "#E91E63", true ) );
-        mapColor.put( "3", new AdjustColor( "#9C27B0" ) );
-        mapColor.put( "4", new AdjustColor( "#673AB7" ) );
-        mapColor.put( "5", new AdjustColor( "#3F51B5" ) );
-        mapColor.put( "6", new AdjustColor( "#2196F3" ) );
-        mapColor.put( "7", new AdjustColor( "#03A9F4" ) );
-        mapColor.put( "8", new AdjustColor( "#00BCD4" ) );
-        mapColor.put( "9", new AdjustColor( "#009688" ) );
-        mapColor.put( "10", new AdjustColor( "#4CAF50" ) );
+        mapColor.put( "1", new AdjustColor( Color.parseColor( "#F44336" ) ) );
+        mapColor.put( "2", new AdjustColor( Color.parseColor( "#E91E63" ), true ) );
+        mapColor.put( "3", new AdjustColor( Color.parseColor( "#9C27B0" ) ) );
+        mapColor.put( "4", new AdjustColor( Color.parseColor( "#673AB7" ) ) );
+        mapColor.put( "5", new AdjustColor( Color.parseColor( "#3F51B5" ) ) );
+        mapColor.put( "6", new AdjustColor( Color.parseColor( "#2196F3" ) ) );
+        mapColor.put( "7", new AdjustColor( Color.parseColor( "#03A9F4" ) ) );
+        mapColor.put( "8", new AdjustColor( Color.parseColor( "#00BCD4" ) ) );
+        mapColor.put( "9", new AdjustColor( Color.parseColor( "#009688" ) ) );
+        mapColor.put( "10", new AdjustColor( Color.parseColor( "#4CAF50" ) ) );
 
         Map<String, AdjustInteger> mapInteger = new LinkedHashMap<>();
         mapInteger.put( "Theme 1", new AdjustInteger( MainActivity.THEME_1, true ) );

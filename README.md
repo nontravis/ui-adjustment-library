@@ -17,8 +17,9 @@
 
 ```gradle
 compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
-debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.5'
-releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.5'
+debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.8'
+releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.3'
+compile 'com.google.code.gson:gson:2.8.2'
 ```
 
 ## 「 Installation 」

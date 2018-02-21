@@ -3,6 +3,7 @@ package com.thekhaeng.library.uiadjustment.debug.adapter.item;
 import android.os.Parcel;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.thekhaeng.library.uiadjustment.debug.adapter.AdjustAdapter;
@@ -16,7 +17,7 @@ import java.util.Map;
  * Created by The Khaeng on 15 Feb 2018 :)
  */
 
-public class IntegerAdjustment extends BaseAdjustItem<AdjustInteger>{
+public class IntegerAdjustment extends BaseAdjustItem<Integer>{
 
     private Map<String, AdjustInteger> mapInteger = new HashMap<>();
 
@@ -66,6 +67,7 @@ public class IntegerAdjustment extends BaseAdjustItem<AdjustInteger>{
         return 0;
     }
 
+    @Nullable
     public AdjustInteger getValue(){
         for( Map.Entry<String, AdjustInteger> entry : this.mapInteger.entrySet() ){
             AdjustInteger value = entry.getValue();
@@ -83,8 +85,8 @@ public class IntegerAdjustment extends BaseAdjustItem<AdjustInteger>{
     }
 
     @Override
-    public Class<AdjustInteger> getStorageClass(){
-        return AdjustInteger.class;
+    public Class<Integer> getStorageClass(){
+        return Integer.class;
     }
 
     @Override
@@ -102,11 +104,11 @@ public class IntegerAdjustment extends BaseAdjustItem<AdjustInteger>{
     }
 
     @Override
-    public void selectValue( Object object ){
-        if( object instanceof AdjustInteger ){
-            AdjustInteger adjustInteger = (AdjustInteger) object;
+    public void selectValue( @NonNull Object object ){
+        if( object instanceof Integer ){
+            Integer adjustInteger = (Integer) object;
             for( Map.Entry<String, AdjustInteger> entry : this.mapInteger.entrySet() ){
-                if( entry.getValue().equals( adjustInteger ) ){
+                if( entry.getValue().getValue() == adjustInteger ){
                     unSelectAll();
                     entry.getValue().setSelected( true );
                     return;

@@ -1,11 +1,7 @@
 package com.thekhaeng.library.uiadjustment.debug.adapter.model;
 
-import android.content.Context;
-import android.graphics.Color;
 import android.os.Parcel;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
-import android.support.v4.content.ContextCompat;
 
 /**
  * Created by The Khaeng on 15 Feb 2018 :)
@@ -13,41 +9,31 @@ import android.support.v4.content.ContextCompat;
 
 public class AdjustColor extends BaseAdjustModel{
 
-    private String color = "";
-    private int id = -1;
+
+    private int color = -1;
 
     private AdjustColor(){
-        super(false);
+        super( false );
     }
 
-    public AdjustColor( @ColorRes int id){
-        super(false);
-        this.id = id;
-    }
 
-    public AdjustColor( @ColorRes int id, boolean selected ){
-        super(selected);
-        this.id = id;
-    }
-
-    public AdjustColor( String color){
-        super(false);
+    public AdjustColor( @ColorInt int color ){
+        super( false );
         this.color = color;
     }
 
-    public AdjustColor( String color, boolean selected ){
-        super(selected);
+    public AdjustColor( @ColorInt int color, boolean selected ){
+        super( selected );
         this.color = color;
     }
 
-    public AdjustColor setColor( String color ){
+    public AdjustColor setColor(@ColorInt int color){
         this.color = color;
         return this;
     }
 
-    public AdjustColor setId( int id ){
-        this.id = id;
-        return this;
+    public int getColor(){
+        return color;
     }
 
     @Override
@@ -55,33 +41,14 @@ public class AdjustColor extends BaseAdjustModel{
         return (AdjustColor) super.setSelected( selected );
     }
 
-    public int getId(){
-        return id;
-    }
-
-
-    @ColorInt
-    public int getColor( Context context ){
-        if( isUseId() ){
-            return ContextCompat.getColor( context, id );
-        }else{
-            return Color.parseColor( color );
-        }
-    }
 
 
     public AdjustColor copy(){
         return new AdjustColor()
                 .setColor( color )
-                .setId( id )
-                .setSelected( isSelected() ) ;
+                .setSelected( isSelected() );
     }
 
-
-
-    public boolean isUseId(){
-        return color == null;
-    }
 
     @Override
     public boolean equals( Object o ){
@@ -90,15 +57,12 @@ public class AdjustColor extends BaseAdjustModel{
 
         AdjustColor that = (AdjustColor) o;
 
-        if( getId() != that.getId() ) return false;
-        return color.equals( that.color );
+        return color == that.color;
     }
 
     @Override
     public int hashCode(){
-        int result = color.hashCode();
-        result = 31 * result + getId();
-        return result;
+        return color;
     }
 
     @Override
@@ -109,14 +73,12 @@ public class AdjustColor extends BaseAdjustModel{
     @Override
     public void writeToParcel( Parcel dest, int flags ){
         super.writeToParcel( dest, flags );
-        dest.writeString( this.color );
-        dest.writeInt( this.id );
+        dest.writeInt( this.color );
     }
 
     protected AdjustColor( Parcel in ){
         super( in );
-        this.color = in.readString();
-        this.id = in.readInt();
+        this.color = in.readInt();
     }
 
     public static final Creator<AdjustColor> CREATOR = new Creator<AdjustColor>(){

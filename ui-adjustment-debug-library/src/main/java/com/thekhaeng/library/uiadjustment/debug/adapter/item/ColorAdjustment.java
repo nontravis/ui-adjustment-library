@@ -3,6 +3,7 @@ package com.thekhaeng.library.uiadjustment.debug.adapter.item;
 import android.os.Parcel;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.thekhaeng.library.uiadjustment.debug.adapter.AdjustAdapter;
@@ -16,7 +17,7 @@ import java.util.Map;
  * Created by The Khaeng on 15 Feb 2018 :)
  */
 
-public class ColorAdjustment extends BaseAdjustItem<AdjustColor>{
+public class ColorAdjustment extends BaseAdjustItem<Integer>{
 
     private Map<String, AdjustColor> mapColor = new LinkedHashMap<>();
 
@@ -54,6 +55,7 @@ public class ColorAdjustment extends BaseAdjustItem<AdjustColor>{
         return mapColor;
     }
 
+    @Nullable
     public AdjustColor getValue(){
         for( Map.Entry<String, AdjustColor> entry : this.mapColor.entrySet() ){
             AdjustColor value = entry.getValue();
@@ -71,8 +73,8 @@ public class ColorAdjustment extends BaseAdjustItem<AdjustColor>{
     }
 
     @Override
-    public Class<AdjustColor> getStorageClass(){
-        return AdjustColor.class;
+    public Class<Integer> getStorageClass(){
+        return Integer.class;
     }
 
     @Override
@@ -90,11 +92,11 @@ public class ColorAdjustment extends BaseAdjustItem<AdjustColor>{
     }
 
     @Override
-    public void selectValue( Object object ){
-        if( object instanceof AdjustColor ){
-            AdjustColor adjustColor = (AdjustColor) object;
+    public void selectValue( @NonNull Object object ){
+        if( object instanceof Integer ){
+            Integer color = (Integer) object;
             for( Map.Entry<String, AdjustColor> entry : this.mapColor.entrySet() ){
-                if( entry.getValue().equals( adjustColor ) ){
+                if( entry.getValue().getColor() == color ){
                     unSelectAll();
                     entry.getValue().setSelected( true );
                     return;
