@@ -6,9 +6,11 @@
 [README ENG](./README.md)
 
 
-#### UI Adjustment Library เป็น library ที่ช่วยแก้ปัญหาการปรับเปลี่ยน UI ได้ตั้งแต่ตอน runtime (ไม่ต้อง rebuild หรือ restart) และยังสามารถเชื่อม business logic ที่มีหลายกรณีในหน้านั้นๆ กับ UI state ซึ่งจะช่วยลดระยะเวลาการทดสอบโค๊ดลงได้ :)
+#### UI Adjustment Library เป็น library ที่ช่วยแก้ปัญหาการปรับเปลี่ยน UI ได้ตั้งแต่ตอน runtime (ไม่ต้อง rebuild หรือ restart) และยังสามารถเชื่อม business logic ที่มีหลายกรณีในหน้านั้นๆ กับ library ซึ่งจะช่วยลดระยะเวลาการทดสอบโค๊ดลงได้ :)
 
-> NOTE: Boolean, Color, Integer, Float และ String เป็นค่าที่เราสามารถปรับเปลียนได้ในโปรเจคนี้
+#### และ library ยังช่วย project ที่ยังทำ API service ไม่เสร็จ ให้สามารถนำ mock ของผลลัพธ์มา map กับ libray ได้โดยไม่ต้องรอ API service ให้เสียเวลา เพื่อทดสอบการแสดงผลของ UI ใน state ต่างๆ
+
+> NOTE: Boolean, Color, Integer, Float และ String เป็นค่าที่เราสามารถปรับเปลียนได้ใน library นี้
 
 
 <img src="./pictures/uiadjustment-debug.gif">
@@ -30,7 +32,7 @@ Gradle
 compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
 debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.8'
 releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.3'
-compile 'com.google.code.gson:gson:2.8.2'
+compile 'com.google.code.gson:gson:2.8.2' //ถ้ามีอยู่ใน project ไม่จำเป็น
 ```
 
 ## 「 Debug VS Release 」
@@ -43,7 +45,7 @@ compile 'com.google.code.gson:gson:2.8.2'
 
 ## 「  วิธี setup ให้ project เรา build debug/release แยกจากกัน 」
 
-ในโปรเจคให้เราไปสร้าง folder เพิ่มคือ **debug** กับ **release** ตามด้านล่าง
+ในโปรเจคให้เราทำการสร้าง folder เพิ่มคือ **debug** กับ **release** ใน src ตามด้านล่าง
 
 ```
 ── <YOUR PROJECT>
@@ -65,8 +67,9 @@ compile 'com.google.code.gson:gson:2.8.2'
 ## 「 Usage 」
 
 ##### 1. เลือก activity/fragment ที่เราต้องการจะใช้ UI Adjustment
-##### 2. สร้าง class ที่ extends [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)/[UIFragmentAdjustment.class](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java) ไว้ท้ง [debug](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/) และ [release](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/) (ตามตัวอย่าง link)
-##### 3. Override createAdjustItemList() เพื่อสร้าง UI Adjustment ผูกกับ ID ตามตัวอย่าง
+##### 2. สร้าง folder เพิ่มใน src เพิ่ม "debug" กับ "release" เพื่อทำการแยกโค๊ดออกจากกัน
+##### 3. สร้าง class ที่ extends [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)/[UIFragmentAdjustment.class](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java) ไว้ท้ง [debug](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/) และ [release](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/) (ตามตัวอย่าง link)
+##### 4. Override createAdjustItemList() เพื่อสร้าง UI Adjustment ผูกกับ ID ตามตัวอย่าง
 	
 > **NOTE:** class ที่สามารถใช้ได้ **BooleanAdjustment.class, ColorAdjustment.class, IntegerAdjustment.class, RangeFloatAdjustment.class และ StringAdjustment.class**
 
@@ -108,7 +111,7 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
 
 ```
 
-##### 4. ดักฟังค่าที่ adjust เสร็จแล้ว ดูตัวอย่างได้ที่ [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)
+##### 5. ดักฟังค่าที่ adjust เสร็จแล้ว ดูตัวอย่างได้ที่ [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)
 
 ```java
 public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
@@ -149,7 +152,7 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
 }
 ```
 
-##### 5. ผูก class ที่สร้างไว้กับ activity/fragment ตามตัวอย่าง
+##### 6. ผูก UIAdjustment class ที่สร้างไว้กับ activity/fragment ตามตัวอย่าง ก็เป็นอันเสร็จ
 ```java
 public class MainActivity extends AppCompatActivity{
 
@@ -195,12 +198,12 @@ UIAdjustMainActivity
 
 **`setDelayMillisTime( millis )`**
  
-* ทำการ delay ตัว listener หลัง adjustment เสร็จสินเพื่อดูการเปลี่ยนแปลงของ UI
+* delay listener หลัง adjustment เสร็จสินเพื่อดูการเปลี่ยนแปลงของ UI
 
 
 **`setUseLocalStorage( useLocalStorage, bindDataImmediately )`** 
 
-* boolean: **useLocalStorage**: เปิดใช้ local storage (sharepreference) ในการเก็บค่าเมื่อ adjustment เสร็จ
+* boolean: **useLocalStorage**: เปิดใช้ local storage (sharepreference) เก็บค่าเมื่อ adjustment เสร็จ
 * boolean: **bindDataImmediately**: ให้ทำการเซ็ตข้อมูลเข้ากับ UI ทันทีที่เปิดใช้งานหน้านั้นๆ
 
 

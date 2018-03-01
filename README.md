@@ -4,9 +4,11 @@
 
 [README TH](./README_TH.md)
 
-#### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime (without rebuilding or restarting) and can also map business logic in many cases to the UI state. :)
+#### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime (without rebuilding or restarting) and can also map business logic in many cases to the library. :)
 
-> NOTE: Boolean, Color, Integer, Float และ String เป็นค่าที่เราสามารถปรับเปลียนได้ในโปรเจคนี้
+#### และ library ยังช่วย project ที่ยังทำ API service ไม่เสร็จ ให้สามารถนำ mock ของผลลัพธ์มา map กับ libray ได้โดยไม่ต้องรอ API service ให้เสียเวลา เพื่อทดสอบการแสดงผลของ UI ใน state ต่างๆ
+
+> NOTE: Boolean, Color, Integer, Float, and String these are a value that you can modify in this project.
 
 
 <img src="./pictures/uiadjustment-debug.gif">
@@ -15,68 +17,57 @@
 
 ## 「 DEMO APPLICATION 」
 
-```gradle
-compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
-debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.8'
-releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.3'
-compile 'com.google.code.gson:gson:2.8.2'
 ```
+clone repo and build it :)
+```
+
 
 ## 「 Installation 」
-
-Maven
-
-```xml
-<dependency>
-  <groupId>com.github.thekhaeng</groupId>
-  <artifactId>ui-adjustment-library</artifactId>
-  <version>1.0.1</version>
-  <type>pom</type>
-</dependency>
-```
 
 Gradle
 
 ```gradle
-compile 'com.github.thekhaeng:ui-adjustment-library:1.0.1'
+compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
+debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.8'
+releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.3'
+compile 'com.google.code.gson:gson:2.8.2' //If not exist in your project
 ```
 
 ## 「 Debug VS Release 」
-โปรเจคนี้แยก build สำหรับ **debug** และ **release**
-ซึ่งจะทำให้โค๊ดไม่ปนกันจนทำให้แอปบวม
+This project separates the build for **debug** and **release** mode, which makes the code not more size.
 
-ด้านซ้ายจะเป็นการ **build แบบ debug** ส่วนด้านขวาจะเป็นการ **build แบบ release** (จะไม่มีส่วนของ UI Adjustment)
+The left will build a debug mode and the right will build a release mode. (No UI Adjustment)
 
 <img src="./pictures/uiadjustment-debug.png" width="240"> <img src="./pictures/uiadjustment-release.png" width="240">
 
-## 「  วิธี setup ให้ project เรา build debug/release แยกจากกัน 」
+## 「 How to setup a project. you can build debug/release by separate them. 」
 
-ในโปรเจคให้เราไปสร้าง folder เพิ่มคือ **debug** กับ **release** ตามด้านล่าง
+In your project, you have to create folder are **debug** and **release** is "src" folder, as below
 
 ```
 ── <YOUR PROJECT>
  │
  └─ src
      │
-     ├─ debug: จะใช้โค๊ดในนี้ตอนเรา build แบบ "debug"
+     ├─ debug: code used when you build "debug" mode
      │
-     ├─ main: โค๊ดในนี้จะถูกใช้เสมอ
+     ├─ main: code always used
      │
-     └─ release: จะใช้โค๊ดในนี้ตอนเรา build แบบ "release"
+     └─ release: code used when you build "release" mode
 ```
 
-> **NOTE:** ไม่ต้องทำอะไรเพิ่มเติม แค่นี้เราก็สามารถแยกโค๊ด debug กับ release ออกจากกันได้แล้ว :)
-
+> **NOTE:** That's it !! you can split the code of debug and release already.
 
 
 
 ## 「 Usage 」
 
-##### 1. เลือก activity/fragment ที่เราต้องการจะใช้ UI Adjustment
-##### 2. สร้าง class ที่ extends [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)/[UIFragmentAdjustment.class](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java) ไว้ท้ง [debug](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/) และ [release](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/) (ตามตัวอย่าง link)
-##### 3. Override createAdjustItemList() เพื่อสร้าง UI Adjustment ผูกกับ ID ตามตัวอย่าง
+##### 1. Select activity/fragment that you need to use UI Adjustment.
+##### 2. Create **debug** and **release** in src folder for split the code
+##### 3. Create class at extends [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)/[UIFragmentAdjustment.class](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java) ไว้ท้ง [debug](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/) และ [release](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/) (ตามตัวอย่าง link)
+##### 4. Override createAdjustItemList() for build UI Adjustment bind with ID (as an example)
 	
-> **NOTE:** class ที่สามารถใช้ได้ **BooleanAdjustment.class, ColorAdjustment.class, IntegerAdjustment.class, RangeFloatAdjustment.class และ StringAdjustment.class**
+> **NOTE:** A class that you can used: **BooleanAdjustment.class, ColorAdjustment.class, IntegerAdjustment.class, RangeFloatAdjustment.class และ StringAdjustment.class**
 
 ```java
 public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
@@ -116,7 +107,7 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
 
 ```
 
-##### 4. ดักฟังค่าที่ adjust เสร็จแล้ว ดูตัวอย่างได้ที่ [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)
+##### 5. Listen adjust result, see example at [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)
 
 ```java
 public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
@@ -157,7 +148,8 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
 }
 ```
 
-##### 5. ผูก class ที่สร้างไว้กับ activity/fragment ตามตัวอย่าง
+##### 6. Bind a class created with activity/fragment.
+
 ```java
 public class MainActivity extends AppCompatActivity{
 
@@ -186,30 +178,30 @@ public class MainActivity extends AppCompatActivity{
 ```java
 UIAdjustMainActivity
        .create( this, fab )
+       .setTitle( "Example Title" )
        .setDelayMillisTime( 500 )
        .setUseLocalStorage( true, true );
 
 ```
-
 **`setTitle( title )`**
 
-* string: **title**: เปลี่ยน default title
+* string: **title**: change default title
 
 **`create( activity/fragment, view )`**
 
-* **activity/fragment**: ฝั่ง activity/fragment เพื่อนำไปใช้ใน class
-* **view**: ไว้คลิ๊กเพื่อแสดง UI Adjustment `NOTE: ถ้า build แบบ release จะซ้อน view ใหัอัตโนมัต`
+* **activity/fragment**: 
+* **view**: click to show UI Adjustment `NOTE: If you build a release mode, the view automatically hide.`
 
 
 **`setDelayMillisTime( millis )`**
  
-* ทำการ delay ตัว listener หลัง adjustment เสร็จสินเพื่อดูการเปลี่ยนแปลงของ UI
+* to delay the listener when adjustment done.
 
 
 **`setUseLocalStorage( useLocalStorage, bindDataImmediately )`** 
 
-* boolean: **useLocalStorage**: เปิดใช้ local storage (sharepreference) ในการเก็บค่าเมื่อ adjustment เสร็จ
-* boolean: **bindDataImmediately**: ให้ทำการเซ็ตข้อมูลเข้ากับ UI ทันทีที่เปิดใช้งานหน้านั้นๆ
+* boolean: **useLocalStorage**: enable local storage (sharepreference) to store values when adjustment is complete.
+* boolean: **bindDataImmediately**: set the data to the UI once the page is activated.
 
 
 # Licence
