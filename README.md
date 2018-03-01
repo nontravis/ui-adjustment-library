@@ -6,7 +6,9 @@
 
 #### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime (without rebuilding or restarting) and can also map business logic in many cases to the library. :)
 
-#### และ library ยังช่วย project ที่ยังทำ API service ไม่เสร็จ ให้สามารถนำ mock ของผลลัพธ์มา map กับ libray ได้โดยไม่ต้องรอ API service ให้เสียเวลา เพื่อทดสอบการแสดงผลของ UI ใน state ต่างๆ
+#### This library also allows the project to create the mock result from API Service and mapped with the library to test UI's rendering in the various states. Therefore, you're no longer wasting your time for API service.
+
+
 
 > NOTE: Boolean, Color, Integer, Float, and String these are a value that you can modify in this project.
 
