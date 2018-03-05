@@ -6,7 +6,7 @@
 [README ENG](./README.md)
 
 
-#### UI Adjustment Library เป็น library ที่ช่วยแก้ปัญหาการปรับเปลี่ยน UI ได้ตั้งแต่ตอน runtime (ไม่ต้อง rebuild หรือ restart) และยังสามารถเชื่อม business logic ที่มีหลายกรณีในหน้านั้นๆ กับ library ซึ่งจะช่วยลดระยะเวลาการทดสอบโค๊ดลงได้ :)
+#### UI Adjustment Library เป็น library ที่ช่วยแก้ปัญหาการปรับเปลี่ยน UI ตามข้อมูลที่ส่งเข้ามาได้ตั้งแต่ตอน runtime (โดยไม่ต้อง rebuild หรือ restart) :)
 
 #### library นี้ยังช่วย project ที่ยังสร้าง API service ไม่เสร็จ ให้สามารถนำ mock ของผลลัพธ์มา map กับ library เพื่อทดสอบการแสดงผลของ UI ใน state ต่างๆได้ก่อน โดยไม่ต้องรอ API service ให้เสียเวลา 
 
@@ -36,14 +36,14 @@ compile 'com.google.code.gson:gson:2.8.2' //ถ้ามีอยู่ใน pr
 ```
 
 ## 「 Debug VS Release 」
-โปรเจคนี้แยก build สำหรับ **debug** และ **release**
+library นี้แยก build สำหรับ **debug** และ **release**
 ซึ่งจะทำให้โค๊ดไม่ปนกันจนทำให้แอปบวม
 
 ด้านซ้ายจะเป็นการ **build แบบ debug** ส่วนด้านขวาจะเป็นการ **build แบบ release** (จะไม่มีส่วนของ UI Adjustment)
 
 <img src="./pictures/uiadjustment-debug.png" width="240"> <img src="./pictures/uiadjustment-release.png" width="240">
 
-## 「  วิธี setup ให้ project เรา build debug/release แยกจากกัน 」
+## 「 วิธี setup ให้ project เรา build debug/release แยกจากกัน 」
 
 ในโปรเจคให้เราทำการสร้าง folder เพิ่มคือ **debug** กับ **release** ใน src ตามด้านล่าง
 
@@ -60,7 +60,6 @@ compile 'com.google.code.gson:gson:2.8.2' //ถ้ามีอยู่ใน pr
 ```
 
 > **NOTE:** ไม่ต้องทำอะไรเพิ่มเติม แค่นี้เราก็สามารถแยกโค๊ด debug กับ release ออกจากกันได้แล้ว :)
-
 
 
 
@@ -122,30 +121,47 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     protected void onColor( Activity activity, int id, @ColorInt int color ){
         super.onColor( activity, id, color );
+        getActivity().findViewById( id ).setBackgroundColor( color );
         ...
     }
 
     @Override
     protected void onBoolean( Activity activity, int id, boolean value ){
         super.onBoolean( activity, id, value );
+        AppCompatTextView tvShow = getActivity().findViewById( id );
+        if( value ){
+            tvShow.setText( "True" );
+            tvShow.setAlpha( 1.0f );
+        }else{
+            tvShow.setText( "False" );
+            tvShow.setAlpha( 0.54f );
+        }
 		 ...
     }
 
     @Override
     protected void onInteger( Activity activity, int id, int value ){
         super.onInteger( activity, id, value );
-	    ...
+        if( THEME_ID == id ){
+            getActivity().restart( value );
+        }
+        ...
     }
 
     @Override
     protected void onRangeFloat( Activity activity, int id, float value ){
         super.onRangeFloat( activity, id, value );
+        ( (AppCompatTextView) getActivity().findViewById( id ) )
+                .setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        value );
         ...
     }
 
     @Override
     protected void onString( Activity activity, int id, String value ){
         super.onString( activity, id, value );
+        ( (AppCompatTextView) getActivity().findViewById( id ) ).setText( value );
         ...
     }
     

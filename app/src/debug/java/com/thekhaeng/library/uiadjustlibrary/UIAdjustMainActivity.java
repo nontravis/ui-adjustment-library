@@ -94,17 +94,13 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     public void onBoolean( int id, boolean value ){
         super.onBoolean( id, value );
-
-        if( R.id.tv_show == id ){
-            AppCompatTextView tvShow = getActivity().findViewById( id );
-            if( value ){
-                tvShow.setText( "True" );
-                tvShow.setAlpha( 1.0f );
-            }else{
-                tvShow.setText( "False" );
-                tvShow.setAlpha( 0.54f );
-            }
-
+        AppCompatTextView tvShow = getActivity().findViewById( id );
+        if( value ){
+            tvShow.setText( "True" );
+            tvShow.setAlpha( 1.0f );
+        }else{
+            tvShow.setText( "False" );
+            tvShow.setAlpha( 0.54f );
         }
     }
 
@@ -119,20 +115,15 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     public void onRangeFloat( int id, float value ){
         super.onRangeFloat( id, value );
-        if( R.id.tv_size == id ){
-            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_size ) )
-                    .setTextSize(
-                            TypedValue.COMPLEX_UNIT_SP,
-                            value );
-        }
+        ( (AppCompatTextView) getActivity().findViewById( id ) )
+                .setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        value );
     }
 
     @Override
     public void onString( int id, String value ){
         super.onString( id, value );
-        if( R.id.tv_message == id ){
-            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_message ) )
-                    .setText( value );
-        }
+        ( (AppCompatTextView) getActivity().findViewById( id ) ).setText( value );
     }
 }

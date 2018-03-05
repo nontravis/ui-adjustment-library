@@ -4,10 +4,9 @@
 
 [README TH](./README_TH.md)
 
-#### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime (without rebuilding or restarting) and can also map business logic in many cases to the library. :)
+#### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime based on input data (without rebuilding or restarting). :)
 
-#### This library also allows the project to create the mock result from API Service and mapped with the library to test UI's rendering in the various states. Therefore, you're no longer wasting your time for API service.
-
+#### This library also allows the project to mock result from API Service and mapped with the library to test UI's rendering in the various states. So you do not need to wait for API Services to be finhished to test your application.
 
 
 > NOTE: Boolean, Color, Integer, Float, and String these are a value that you can modify in this project.
@@ -36,15 +35,15 @@ compile 'com.google.code.gson:gson:2.8.2' //If not exist in your project
 ```
 
 ## 「 Debug VS Release 」
-This project separates the build for **debug** and **release** mode, which makes the code not more size.
+This library separates the build for **debug** and **release** mode, which does not increase the size of the application.
 
-The left will build a debug mode and the right will build a release mode. (No UI Adjustment)
+On the left picture, it is built with debug mode, and on the right with release mode (No UI adjustment).
 
 <img src="./pictures/uiadjustment-debug.png" width="240"> <img src="./pictures/uiadjustment-release.png" width="240">
 
-## 「 How to setup a project. you can build debug/release by separate them. 」
+## 「 How to setup our project to build separate debug and release. 」
 
-In your project, you have to create folder are **debug** and **release** is "src" folder, as below
+In your project, you have to create folders are **debug** and **release** inside "src" folder, as below
 
 ```
 ── <YOUR PROJECT>
@@ -66,7 +65,7 @@ In your project, you have to create folder are **debug** and **release** is "src
 
 ##### 1. Select activity/fragment that you need to use UI Adjustment.
 ##### 2. Create **debug** and **release** in src folder for split the code
-##### 3. Create class at extends [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)/[UIFragmentAdjustment.class](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java) ไว้ท้ง [debug](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/) และ [release](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/) (ตามตัวอย่าง link)
+##### 3. Create class at extends [UIActivityAdjustment.class](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java)/[UIFragmentAdjustment.class](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/UIAdjustMainActivity.java) both [debug](./app/src/debug/java/com/thekhaeng/library/uiadjustlibrary/) and [release](./app/src/release/java/com/thekhaeng/library/uiadjustlibrary/) (follow example link)
 ##### 4. Override createAdjustItemList() for build UI Adjustment bind with ID (as an example)
 	
 > **NOTE:** A class that you can used: **BooleanAdjustment.class, ColorAdjustment.class, IntegerAdjustment.class, RangeFloatAdjustment.class และ StringAdjustment.class**
@@ -120,37 +119,54 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     protected void onColor( Activity activity, int id, @ColorInt int color ){
         super.onColor( activity, id, color );
+        getActivity().findViewById( id ).setBackgroundColor( color );
         ...
     }
 
     @Override
     protected void onBoolean( Activity activity, int id, boolean value ){
         super.onBoolean( activity, id, value );
+        AppCompatTextView tvShow = getActivity().findViewById( id );
+        if( value ){
+            tvShow.setText( "True" );
+            tvShow.setAlpha( 1.0f );
+        }else{
+            tvShow.setText( "False" );
+            tvShow.setAlpha( 0.54f );
+        }
 		 ...
     }
 
     @Override
     protected void onInteger( Activity activity, int id, int value ){
         super.onInteger( activity, id, value );
-	    ...
+        if( THEME_ID == id ){
+            getActivity().restart( value );
+        }
+        ...
     }
 
     @Override
     protected void onRangeFloat( Activity activity, int id, float value ){
         super.onRangeFloat( activity, id, value );
+        ( (AppCompatTextView) getActivity().findViewById( id ) )
+                .setTextSize(
+                        TypedValue.COMPLEX_UNIT_SP,
+                        value );
         ...
     }
 
     @Override
     protected void onString( Activity activity, int id, String value ){
         super.onString( activity, id, value );
+        ( (AppCompatTextView) getActivity().findViewById( id ) ).setText( value );
         ...
     }
     
 }
 ```
 
-##### 6. Bind a class created with activity/fragment.
+##### 6. Bind a class created to activity/fragment.
 
 ```java
 public class MainActivity extends AppCompatActivity{
@@ -197,7 +213,7 @@ UIAdjustMainActivity
 
 **`setDelayMillisTime( millis )`**
  
-* to delay the listener when adjustment done.
+* to delay the listener after adjustment is finished.
 
 
 **`setUseLocalStorage( useLocalStorage, bindDataImmediately )`** 
