@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate( Bundle savedInstanceState ){
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null ){
+        if( bundle != null ){
             isRestart = true;
             int theme = bundle.getInt( KEY_THEME, -1 );
             switch( theme ){
@@ -42,18 +43,20 @@ public class MainActivity extends AppCompatActivity{
         if( BuildConfig.DEBUG ){
             UIAdjustMainActivity
                     .create( this, fab )
+                    .showKeepActivityGlobalSetting( (TextView) findViewById( R.id.tv_keep_activity ) )
                     .setUseLocalStorage( true, true );
+
         }
 
     }
 
-    public void restart(int theme){
+    public void restart( int theme ){
         if( isRestart ){
             isRestart = false;
             return;
         }
         Intent intent = getIntent();
-        Bundle bundle = new Bundle(  );
+        Bundle bundle = new Bundle();
         bundle.putInt( KEY_THEME, theme );
         intent.putExtras( bundle );
         finish();

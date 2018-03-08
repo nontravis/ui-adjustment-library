@@ -1,10 +1,15 @@
 package com.thekhaeng.library.uiadjustment.debug;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
+import android.provider.Settings;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.TextView;
 
 import com.thekhaeng.library.uiadjustment.core.UIAdjustmentInterface;
 import com.thekhaeng.library.uiadjustment.debug.adapter.item.BaseAdjustItem;
@@ -63,6 +68,24 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
         if( bindDataImmediately ){
             uiAdjustmentDelegate.bindData(
                     uiAdjustmentDelegate.getItemList( createAdjustItemList() ) );
+        }
+        return this;
+    }
+
+    @Override
+    public UIAdjustmentInterface showKeepActivityGlobalSetting( TextView textView ){
+        showKeepActivityGlobalSetting( textView, Color.RED );
+        return this;
+    }
+
+    @SuppressLint( "SetTextI18n" )
+    @Override
+    public UIAdjustmentInterface showKeepActivityGlobalSetting( TextView textView, @ColorInt int textColor ){
+        if( isKeepActivitiesOptionEnabled( getFragment().getContext() ) ){
+            textView.setVisibility( View.GONE );
+        }else{
+            textView.setTextColor( textColor );
+            textView.setText( "Don't keep activity mode." );
         }
         return this;
     }
@@ -130,4 +153,9 @@ public abstract class UIFragmentAdjustment<A extends Fragment> implements UIAdju
     @NonNull
     protected abstract List<BaseAdjustItem> createAdjustItemList();
 
+
+    private boolean isKeepActivitiesOptionEnabled( Context context ){
+        int result = Settings.Global.getInt( context.getContentResolver(), Settings.Global.ALWAYS_FINISH_ACTIVITIES, 0 );
+        return result == 0;
+    }
 }

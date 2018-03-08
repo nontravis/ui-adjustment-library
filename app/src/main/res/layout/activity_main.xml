@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         tools:context="com.thekhaeng.library.uiadjustlibrary.MainActivity">
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_color"
             android:layout_width="match_parent"
             android:layout_height="72dp"
@@ -27,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_show"
             android:layout_width="match_parent"
             android:layout_height="72dp"
@@ -43,7 +43,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_color"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_size"
             android:layout_width="match_parent"
             android:layout_height="72dp"
@@ -57,7 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_show"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_message"
             android:layout_width="match_parent"
             android:layout_height="72dp"
@@ -73,6 +73,14 @@
 
 
     </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_keep_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="16dp"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_adjust"

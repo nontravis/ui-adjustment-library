@@ -14,7 +14,7 @@ ext {
     gitUrl = 'https://github.com/TheKhaeng/ui-adjustment-library.git'
     githubRepository = 'TheKhaeng/ui-adjustment-library'
 
-    libraryVersion = '1.0.3'
+    libraryVersion = '1.0.4'
 
     developerId = 'nonthawit'
     developerName = 'Nonthawit Doungsodsri'
@@ -40,7 +40,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0.3"
+        versionName "1.0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -58,9 +58,9 @@ android {
 dependencies {
 
 //    api project(path: ':ui-adjustment-core-library')
-    api 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
+    api 'com.github.thekhaeng:ui-adjustment-core-library:1.0.6'
 
-    implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'com.android.support:appcompat-v7:27.1.0'
 
 }
 

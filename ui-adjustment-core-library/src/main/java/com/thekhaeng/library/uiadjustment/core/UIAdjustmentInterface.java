@@ -1,5 +1,7 @@
 package com.thekhaeng.library.uiadjustment.core;
 
+import android.widget.TextView;
+
 /**
  * Created by The Khaeng on 15 Feb 2018 :)
  */
@@ -11,6 +13,10 @@ public interface UIAdjustmentInterface{
     UIAdjustmentInterface setDelayMillisTime( long delay );
 
     UIAdjustmentInterface setUseLocalStorage( boolean useLocalStorage, boolean bindDataImmediately );
+
+    UIAdjustmentInterface showKeepActivityGlobalSetting( TextView textView );
+
+    UIAdjustmentInterface showKeepActivityGlobalSetting( TextView textView, int textColor );
 
     void onBoolean( int id, boolean value );
 

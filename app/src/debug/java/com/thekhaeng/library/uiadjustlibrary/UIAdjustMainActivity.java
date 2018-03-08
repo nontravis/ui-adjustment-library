@@ -87,20 +87,24 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     public void onColor( int id, @ColorInt int color ){
         super.onColor( id, color );
-        getActivity().findViewById( id ).setBackgroundColor( color );
+        if( id == R.id.tv_color ){
+            getActivity().findViewById( R.id.tv_color  ).setBackgroundColor( color );
+        }
     }
 
     @SuppressLint( "SetTextI18n" )
     @Override
     public void onBoolean( int id, boolean value ){
         super.onBoolean( id, value );
-        AppCompatTextView tvShow = getActivity().findViewById( id );
-        if( value ){
-            tvShow.setText( "True" );
-            tvShow.setAlpha( 1.0f );
-        }else{
-            tvShow.setText( "False" );
-            tvShow.setAlpha( 0.54f );
+        if( id == R.id.tv_show ){
+            AppCompatTextView tvShow = getActivity().findViewById( R.id.tv_show );
+            if( value ){
+                tvShow.setText( "True" );
+                tvShow.setAlpha( 1.0f );
+            }else{
+                tvShow.setText( "False" );
+                tvShow.setAlpha( 0.54f );
+            }
         }
     }
 
@@ -115,15 +119,20 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     public void onRangeFloat( int id, float value ){
         super.onRangeFloat( id, value );
-        ( (AppCompatTextView) getActivity().findViewById( id ) )
-                .setTextSize(
-                        TypedValue.COMPLEX_UNIT_SP,
-                        value );
+        if( id == R.id.tv_size ){
+            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_size ) )
+                    .setTextSize(
+                            TypedValue.COMPLEX_UNIT_SP,
+                            value );
+        }
     }
 
     @Override
     public void onString( int id, String value ){
         super.onString( id, value );
-        ( (AppCompatTextView) getActivity().findViewById( id ) ).setText( value );
+        if( id == R.id.tv_message ){
+            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_message ) ).setText( value );
+        }
+
     }
 }

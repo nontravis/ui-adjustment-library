@@ -1,7 +1,11 @@
 package com.thekhaeng.library.uiadjustment.release;
 
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.support.annotation.ColorInt;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.TextView;
 
 import com.thekhaeng.library.uiadjustment.core.UIAdjustmentInterface;
 
@@ -31,6 +35,20 @@ public abstract class UIFragmentAdjustment<A extends Fragment>
 
     @Override
     public UIAdjustmentInterface setUseLocalStorage( boolean useLocalStorage, boolean bindDataImmediately ){
+        return this;
+    }
+
+
+    @Override
+    public UIAdjustmentInterface showKeepActivityGlobalSetting( TextView textView ){
+        showKeepActivityGlobalSetting( textView, Color.TRANSPARENT );
+        return this;
+    }
+
+    @SuppressLint( "SetTextI18n" )
+    @Override
+    public UIAdjustmentInterface showKeepActivityGlobalSetting( TextView textView, @ColorInt int textColor ){
+        textView.setVisibility( View.GONE );
         return this;
     }
 

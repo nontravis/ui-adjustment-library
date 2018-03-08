@@ -29,9 +29,9 @@ clone repo and build it :)
 Gradle
 
 ```gradle
-compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.5'
-debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.8'
-releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.3'
+compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.6'
+debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.9'
+releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.4'
 compile 'com.google.code.gson:gson:2.8.2' //ถ้ามีอยู่ใน project ไม่จำเป็น
 ```
 
@@ -128,13 +128,15 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     protected void onBoolean( Activity activity, int id, boolean value ){
         super.onBoolean( activity, id, value );
-        AppCompatTextView tvShow = getActivity().findViewById( id );
-        if( value ){
-            tvShow.setText( "True" );
-            tvShow.setAlpha( 1.0f );
-        }else{
-            tvShow.setText( "False" );
-            tvShow.setAlpha( 0.54f );
+        if( id == R.id.tv_show ){
+            AppCompatTextView tvShow = getActivity().findViewById( R.id.tv_show );
+            if( value ){
+                tvShow.setText( "True" );
+                tvShow.setAlpha( 1.0f );
+            }else{
+                tvShow.setText( "False" );
+                tvShow.setAlpha( 0.54f );
+            }
         }
 		 ...
     }
@@ -151,17 +153,21 @@ public class UIAdjustMainActivity extends UIActivityAdjustment<MainActivity>{
     @Override
     protected void onRangeFloat( Activity activity, int id, float value ){
         super.onRangeFloat( activity, id, value );
-        ( (AppCompatTextView) getActivity().findViewById( id ) )
-                .setTextSize(
-                        TypedValue.COMPLEX_UNIT_SP,
-                        value );
+        if( id == R.id.tv_size ){
+            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_size ) )
+                    .setTextSize(
+                            TypedValue.COMPLEX_UNIT_SP,
+                            value );
+        }
         ...
     }
 
     @Override
     protected void onString( Activity activity, int id, String value ){
         super.onString( activity, id, value );
-        ( (AppCompatTextView) getActivity().findViewById( id ) ).setText( value );
+        if( id == R.id.tv_message ){
+            ( (AppCompatTextView) getActivity().findViewById( R.id.tv_message ) ).setText( value );
+        }
         ...
     }
     
@@ -199,6 +205,7 @@ UIAdjustMainActivity
        .create( this, fab )
        .setTitle( "Example Title" )
        .setDelayMillisTime( 500 )
+       .showKeepActivityGlobalSetting( textView )
        .setUseLocalStorage( true, true );
 
 ```
@@ -215,6 +222,10 @@ UIAdjustMainActivity
 **`setDelayMillisTime( millis )`**
  
 * delay listener หลัง adjustment เสร็จสินเพื่อดูการเปลี่ยนแปลงของ UI
+
+**`showKeepActivityGlobalSetting( textView )`**
+ 
+* TextView: **textView**: ไว้โชว์ "Don't keep activity." ถ้าเราเปิดไว้ใน Developer mode setting
 
 
 **`setUseLocalStorage( useLocalStorage, bindDataImmediately )`** 
