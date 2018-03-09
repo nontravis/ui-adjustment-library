@@ -12,12 +12,7 @@ android {
     }
 
     signingConfigs {
-        release {
-            storeFile file(KEYSTORE_FILE)
-            storePassword KEYSTORE_PASSWORD
-            keyAlias KEYSTORE_ALIAS
-            keyPassword KEYSTORE_PASSWORD
-        }
+        release
     }
 
     buildTypes {
@@ -28,6 +23,8 @@ android {
         }
     }
 }
+
+apply from: "$project.rootDir/travis.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

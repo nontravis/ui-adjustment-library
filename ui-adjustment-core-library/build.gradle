@@ -1,38 +1,5 @@
 apply plugin: 'com.android.library'
 
-ext {
-    bintrayRepo = 'TheKhaeng'
-    bintrayName = 'ui-adjustment-core-library'
-
-    publishedGroupId = 'com.github.thekhaeng'
-    libraryName = 'UIAdjustmentCoreLibrary'
-    artifact = 'ui-adjustment-core-library'
-
-    libraryDescription = 'The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime (without rebuilding or restarting) and can also map to business logic in many cases to the UI state.'
-
-    siteUrl = 'https://github.com/TheKhaeng/ui-adjustment-library'
-    gitUrl = 'https://github.com/TheKhaeng/ui-adjustment-library.git'
-    githubRepository= 'TheKhaeng/ui-adjustment-library'
-
-    libraryVersion = '1.0.6'
-
-    developerId = 'nonthawit'
-    developerName = 'Nonthawit Doungsodsri'
-    developerEmail = 'nonthawit.thekhaeng@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-
-//  [gradle.properties]
-//  bintray.user=<your_bintray_username>
-//  bintray.apikey=<your_bintray_apikey>
-//
-//  [Command]
-//  ./gradlew clean build install
-//  ./gradlew bintrayUpload
-}
-
 android {
     compileSdkVersion 27
 
@@ -56,8 +23,14 @@ android {
 
 
 dependencies {
-
 }
 
-apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nisrulz/JCenter/master/bintrayv1.gradle'
+
+//  [gradle.properties]
+//  bintray.user=<your_bintray_username>
+//  bintray.apikey=<your_bintray_apikey>
+//
+//  [Command]
+//  ./gradlew clean build install
+//  ./gradlew bintrayUpload
+apply from: "$project.rootDir/pushlibrary.gradle"

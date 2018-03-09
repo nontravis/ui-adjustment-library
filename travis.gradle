@@ -1,0 +1,17 @@
+android {
+
+    def isRunningOnTravis = System.getenv("CI") == "true"
+
+    if (isRunningOnTravis) {
+        // configure keystore
+        signingConfigs.release.storeFile = file("../travis-ci.keystore")
+        signingConfigs.release.storePassword = System.getenv("keystore_password")
+        signingConfigs.release.keyAlias = System.getenv("keystore_alias")
+        signingConfigs.release.keyPassword = System.getenv("keystore_alias_password")
+    }else{
+        signingConfigs.release.storeFile =  file(KEYSTORE_FILE)
+        signingConfigs.release.storePassword = KEYSTORE_PASSWORD
+        signingConfigs.release.keyAlias = KEYSTORE_ALIAS
+        signingConfigs.release.keyPassword = KEYSTORE_PASSWORD
+    }
+}

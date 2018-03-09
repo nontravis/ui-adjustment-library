@@ -1,5 +1,6 @@
 package com.thekhaeng.library.uiadjustment.core;
 
+
 import android.widget.TextView;
 
 /**
