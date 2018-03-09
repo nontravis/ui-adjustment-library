@@ -2,6 +2,9 @@
 
 <img src="./pictures/cover.png" width="1000">
 
+[![Build Status](https://travis-ci.org/TheKhaeng/material-design-guideline.svg?branch=master)](https://travis-ci.org/TheKhaeng/material-design-guideline) [![Download](https://api.bintray.com/packages/nonthawit/TheKhaeng/ui-adjustment-core-library/images/download.svg) ](https://bintray.com/nonthawit/TheKhaeng/ui-adjustment-core-library/_latestVersion) [![Download](https://api.bintray.com/packages/nonthawit/TheKhaeng/ui-adjustment-debug-library/images/download.svg) ](https://bintray.com/nonthawit/TheKhaeng/ui-adjustment-debug-library/_latestVersion) [![Download](https://api.bintray.com/packages/nonthawit/TheKhaeng/ui-adjustment-release-library/images/download.svg) ](https://bintray.com/nonthawit/TheKhaeng/ui-adjustment-release-library/_latestVersion)
+
+
 [README TH](./README_TH.md)
 
 #### The UI Adjustment Library is a library that solves the problem of modifying the UI at runtime based on input data (without rebuilding or restarting). :)
@@ -248,7 +251,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 ### Developed By Thai android developer.
 
 
-<img src="./pictures/profile2_circle.png" width="170"> ![alt text](./pictures/thekhaeng_logo.png)
+<a href="https://www.facebook.com/nonthawit" target="_blank"><img src="./pictures/profile2_circle.png" width="170"></a> <a href="https://www.facebook.com/thekhaeng.io/" target="_blank">![alt text](./pictures/thekhaeng_logo.png)</a>
 
 
 Follow [facebook.com/thekhaeng.io](https://www.facebook.com/thekhaeng.io) on Facebook page.
