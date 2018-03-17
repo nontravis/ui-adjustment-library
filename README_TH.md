@@ -31,8 +31,8 @@ clone repo and build it :)
 Gradle
 
 ```gradle
-compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.6'
-debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.9'
+compile 'com.github.thekhaeng:ui-adjustment-core-library:1.0.7'
+debugCompile 'com.github.thekhaeng:ui-adjustment-debug-library:1.0.10'
 releaseCompile 'com.github.thekhaeng:ui-adjustment-release-library:1.0.4'
 compile 'com.google.code.gson:gson:2.8.2' //ถ้ามีอยู่ใน project ไม่จำเป็น
 ```
@@ -250,7 +250,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 ### Developed By Thai android developer.
 
 
-<a href="https://www.facebook.com/nonthawit" target="_blank"><img src="./pictures/profile2_circle.png" width="170"></a> <a href="https://www.facebook.com/thekhaeng.io/" target="_blank">![alt text](./pictures/thekhaeng_logo.png)</a>
+[<img src="./pictures/profile2_circle.png" width="170">](https://www.facebook.com/nonthawit) [![TheKhaeng](./pictures/thekhaeng_logo.png)](https://www.facebook.com/thekhaeng.io/)
 
 
 Follow [facebook.com/thekhaeng.io](https://www.facebook.com/thekhaeng.io) on Facebook page.

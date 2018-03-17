@@ -7,5 +7,5 @@ package com.thekhaeng.library.uiadjustment.core;
 public interface UIAdjustmentLocalStorage{
     void save( String key, Object object );
 
-    <T> T load( String key, Class<T> clazz );
+    <T> Object load( String key, Class<T> clazz );
 }
